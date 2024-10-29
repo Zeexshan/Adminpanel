@@ -1,0 +1,210 @@
+:root {
+  --background: #e0e5ec;
+  --background-light: #e8ecf3;
+  --shadow-dark: rgba(163, 177, 198, 0.6);
+  --shadow-light: #ffffff;
+  --status-approved-color: #38a169;
+  --status-pending-color: #d69e2e;
+  --status-rejected-color: #e53e3e;
+  --border-radius: 8px;
+  --transition: all 0.3s ease;
+}
+
+.listContainer {
+  margin: 20px;
+  padding: 20px;
+  border-radius: var(--border-radius);
+  background: var(--background);
+  box-shadow: 8px 8px 16px var(--shadow-dark), -8px -8px 16px var(--shadow-light);
+  overflow: hidden;
+
+  .listTitle {
+    font-weight: 500;
+    color: gray;
+    margin-bottom: 15px;
+  }
+
+  .tableWrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;  /* For smooth scrolling on mobile */
+    
+    /* Hide scrollbar for Webkit-based browsers (e.g., Chrome, Safari) */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  
+    /* Hide scrollbar for Firefox */
+    scrollbar-width: none;
+  }
+}
+
+.table {
+  width: 100%;
+  min-width: max-content;
+  background: var(--background);
+  border-collapse: separate;
+  border-spacing: 0;
+  min-width: 100%; /* Ensure table expands to fill container */
+  width: max-content; /* Makes table as wide as the content */
+
+  thead {
+    th {
+      position: sticky;
+      top: 0;
+      background: var(--background);
+      padding: 12px 16px;
+      font-weight: 600;
+      text-align: left;
+      border-bottom: 1px solid rgba(163, 177, 198, 0.2);
+      white-space: nowrap;
+    }
+  }
+
+  tbody {
+    tr {
+      transition: var(--transition);
+
+      &:hover {
+        background: var(--background-light);
+        box-shadow: inset 2px 2px 5px var(--shadow-dark),
+                    inset -2px -2px 5px var(--shadow-light);
+      }
+
+      td {
+        padding: 12px 16px;
+        border-bottom: 1px solid rgba(163, 177, 198, 0.2);
+        white-space: nowrap;
+      }
+    }
+  }
+
+  .status {
+    padding: 8px 16px;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    display: inline-block;
+    transition: var(--transition);
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+    white-space: nowrap;
+
+    &.Approved {
+      color: var(--status-approved-color);
+      background: linear-gradient(145deg, #e8ecf3, #dcfce7);
+      box-shadow: 3px 3px 6px var(--shadow-dark),
+                 -3px -3px 6px var(--shadow-light),
+                 inset 1px 1px 2px rgba(255, 255, 255, 0.5);
+    }
+
+    &.Pending {
+      color: var(--status-pending-color);
+      background: linear-gradient(145deg, #e8ecf3, #fef3c7);
+      box-shadow: 3px 3px 6px var(--shadow-dark),
+                 -3px -3px 6px var(--shadow-light),
+                 inset 1px 1px 2px rgba(255, 255, 255, 0.5);
+    }
+
+    &.Rejected {
+      color: var(--status-rejected-color);
+      background: linear-gradient(145deg, #e8ecf3, #fee2e2);
+      box-shadow: 3px 3px 6px var(--shadow-dark),
+                 -3px -3px 6px var(--shadow-light),
+                 inset 1px 1px 2px rgba(255, 255, 255, 0.5);
+    }
+  }
+}
+
+.status-rejected,
+.status-approved {
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+  display: inline-block;
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+.status-rejected {
+  color: var(--status-rejected-color);
+  background: linear-gradient(145deg, #e8ecf3, #fee2e2);
+  box-shadow: 3px 3px 6px var(--shadow-dark), -3px -3px 6px var(--shadow-light);
+}
+
+.status-approved {
+  color: var(--status-approved-color);
+  background: linear-gradient(145deg, #e8ecf3, #dcfce7);
+  box-shadow: 3px 3px 6px var(--shadow-dark), -3px -3px 6px var(--shadow-light);
+}
+
+@media screen and (max-width: 1200px) {
+  .listContainer {
+    margin: 15px;
+    padding: 15px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .listContainer {
+    margin: 10px;
+    padding: 10px;
+
+    .listTitle {
+      margin-bottom: 10px;
+    }
+  }
+
+  .table {
+    td, th {
+      padding: 10px 12px;
+    }
+
+    .status {
+      padding: 6px 12px;
+      font-size: 0.9em;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .listContainer {
+    margin: 5px;
+    padding: 10px;
+  }
+
+  .table {
+    td, th {
+      padding: 8px;
+      font-size: 0.9em;
+    }
+
+    .status {
+      padding: 4px 8px;
+      font-size: 0.85em;
+    }
+  }
+}
+
+.table {
+  .tablecell {
+    padding: 10px;
+    font-size: 0.875rem;
+  }
+
+  .status {
+    padding: 5px 10px;
+    border-radius: 8px;
+    text-transform: capitalize;
+
+    &.approved {
+      background-color: #dcfce7;
+      color: #38a169;
+    }
+    &.pending {
+      background-color: #fef3c7;
+      color: #d69e2e;
+    }
+    &.rejected {
+      background-color: #fee2e2;
+      color: #e53e3e;
+    }
+  }
+}

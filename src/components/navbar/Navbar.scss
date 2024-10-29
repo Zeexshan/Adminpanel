@@ -1,0 +1,228 @@
+.Navbar {
+  height: 50px;
+  background: #e0e0e0;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #666;
+  box-shadow: 5px 5px 10px #bebebe,
+              -5px -5px 10px #ffffff;
+  border-radius: 2%;
+  .wrapper {
+    padding: 10px 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .search {
+      display: flex;
+      align-items: center;
+      background: #e0e0e0;
+      border-radius: 10px;
+      padding: 8px 15px;
+    
+
+      input {
+        border: none;
+        outline: none;
+        background: transparent;
+        padding: 5px;
+        color: #666;
+
+        &::placeholder {
+          font-size: 12px;
+          padding-left: 5px;
+          color: #888;
+        }
+      }
+    }
+
+    .items {
+      display: flex;
+      align-items: center;
+
+      .item {
+        display: flex;
+        align-items: center;
+        margin-right: 20px;
+        cursor: pointer;
+        padding: 8px;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+
+        &:hover {
+          box-shadow: inset 3px 3px 7px #bebebe,
+                      inset -3px -3px 7px #ffffff;
+        }
+
+        .Icon {
+          font-size: 20px;
+          color: #666;
+        }
+
+        .avatar {
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          box-shadow: 3px 3px 6px #bebebe,
+                      -3px -3px 6px #ffffff;
+        }
+
+        .counter {
+          width: 15px;
+          height: 15px;
+          background: linear-gradient(145deg, #ff0000, #db0000);
+          margin-top: 1px;
+          border-radius: 50%;
+          color: white;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 10px;
+          font-weight: bold;
+          position: relative;
+          top: -8px;
+          right: 9px;
+          box-shadow: 2px 2px 4px #be0000,
+                      -1px -1px 3px #ff0000;
+        }
+      }
+    }
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .Navbar {
+    height: 45px;
+    font-size: 13px;
+
+    .wrapper {
+      padding: 10px;
+
+      .items .item {
+        margin-right: 15px;
+        padding: 6px;
+
+        .Icon {
+          font-size: 18px;
+        }
+
+        .avatar {
+          width: 28px;
+          height: 28px;
+        }
+
+        .counter {
+          width: 12px;
+          height: 12px;
+          font-size: 9px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .Navbar {
+    height: 40px;
+    font-size: 12px;
+
+    .wrapper {
+      padding: 5px;
+
+      .search input {
+        &::placeholder {
+          font-size: 10px;
+        }
+      }
+
+      .items .item {
+        margin-right: 10px;
+        padding: 5px;
+
+        .Icon {
+          font-size: 16px;
+        }
+
+        .avatar {
+          width: 25px;
+          height: 25px;
+        }
+
+        .counter {
+          width: 10px;
+          height: 10px;
+          font-size: 8px;
+          top: -6px;
+          right: 7px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .Navbar {
+    height: 35px;
+    font-size: 11px;
+
+    .wrapper {
+      padding: 0 5px;
+
+      .items .item {
+        margin-right: 5px;
+        padding: 4px;
+
+        .Icon {
+          font-size: 14px;
+        }
+
+        .avatar {
+          width: 22px;
+          height: 22px;
+        }
+
+        .counter {
+          width: 8px;
+          height: 8px;
+          font-size: 7px;
+          top: -5px;
+          right: 5px;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1440px) {
+  .Navbar {
+    height: 60px;
+    font-size: 16px;
+
+    .wrapper {
+      padding: 20px;
+
+      .items .item {
+        margin-right: 25px;
+        padding: 10px;
+
+        .Icon {
+          font-size: 22px;
+        }
+
+        .avatar {
+          width: 35px;
+          height: 35px;
+        }
+
+        .counter {
+          width: 18px;
+          height: 18px;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,138 @@
+/* Neumorphic Variables */
+:root {
+  --background: #e0e5ec;
+  --text-color: #2d4263;
+  --shadow-light: #ffffff;
+  --shadow-dark: rgba(163, 177, 198, 0.6);
+  --border-radius: 15px;
+  --padding-base: 20px;
+}
+
+.home {
+  display: flex;
+  background-color: var(--background);
+  min-height: 100vh;
+  padding: var(--padding-base);
+  
+  .homeContainer {
+    flex: 6;
+    border-radius: var(--border-radius);
+    background: var(--background);
+    box-shadow: 8px 8px 16px var(--shadow-dark),
+                -8px -8px 16px var(--shadow-light);
+    padding: var(--padding-base);
+    
+    .widgets,
+    .charts {
+      display: flex;
+      padding: var(--padding-base);
+      gap: 20px;
+      flex-wrap: wrap;
+      
+      /* Make child elements take equal space */
+      > * {
+        flex: 1 1 300px;
+        min-width: 250px;
+        background: var(--background);
+        border-radius: var(--border-radius);
+        box-shadow: inset 5px 5px 10px var(--shadow-dark),
+                    inset -5px -5px 10px var(--shadow-light);
+        padding: 15px;
+        transition: all 0.3s ease;
+        
+        &:hover {
+          box-shadow: 5px 5px 10px var(--shadow-dark),
+                      -5px -5px 10px var(--shadow-light);
+        }
+      }
+    }
+    
+    .charts {
+      padding: 5px var(--padding-base);
+    }
+    
+    .listContainer {
+      margin: var(--padding-base);
+      padding: var(--padding-base);
+      border-radius: var(--border-radius);
+      background: var(--background);
+      box-shadow: 8px 8px 16px var(--shadow-dark),
+                  -8px -8px 16px var(--shadow-light);
+      
+      .listTitle {
+        font-weight: 500;
+        color: var(--text-color);
+        margin-bottom: 15px;
+        padding-left: 10px;
+        border-left: 4px solid var(--text-color);
+      }
+    }
+  }
+}
+
+/* Media Queries for Responsiveness */
+@media screen and (max-width: 1200px) {
+  .home {
+    padding: 15px;
+    
+    .homeContainer {
+      .widgets,
+      .charts {
+        gap: 15px;
+        padding: 15px;
+        
+        > * {
+          flex: 1 1 250px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .home {
+    flex-direction: column;
+    padding: 10px;
+    
+    .homeContainer {
+      padding: 10px;
+      
+      .widgets,
+      .charts {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+        
+        > * {
+          flex: 1 1 100%;
+          min-width: unset;
+        }
+      }
+      
+      .listContainer {
+        margin: 10px;
+        padding: 15px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .home { 
+    padding: 5px;
+    
+    .homeContainer {
+      padding: 5px;
+      
+      .widgets,
+      .charts {
+        padding: 5px;
+      }
+      
+      .listContainer {
+        margin: 5px;
+        padding: 10px;
+      }
+    }
+  }
+}

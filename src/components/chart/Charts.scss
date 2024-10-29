@@ -1,0 +1,149 @@
+/* Neumorphic Variables */
+:root {
+  --background: #e0e5ec;
+  --text-color: #6b7280;
+  --shadow-dark: rgba(163, 177, 198, 0.6);
+  --shadow-light: #ffffff;
+  --grid-color: #e2e8f0;
+  --border-radius: 10px;
+  --transition: all 0.3s ease;
+}
+
+.chart {
+  flex: 3;
+  background: var(--background);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  color: var(--text-color);
+  box-shadow: 8px 8px 16px var(--shadow-dark),
+              -8px -8px 16px var(--shadow-light);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+
+  /* Subtle inner shadow for depth */
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: var(--border-radius);
+    box-shadow: inset 2px 2px 5px var(--shadow-dark),
+                inset -2px -2px 5px var(--shadow-light);
+    pointer-events: none;
+  }
+
+  /* Chart title */
+  .title {
+    margin-bottom: 20px;
+    font-weight: 500;
+    padding: 0 10px;
+    position: relative;
+    display: inline-block;
+
+    /* Decorative line under title */
+    &::after {
+      content: '';
+      position: absolute;
+      left: 10px;
+      bottom: -5px;
+      width: 50%;
+      height: 2px;
+      background: linear-gradient(
+        90deg,
+        var(--text-color) 0%,
+        transparent 100%
+      );
+      border-radius: 1px;
+    }
+  }
+
+  /* Chart grid styling */
+  .chartGrid {
+    stroke: var(--grid-color);
+    stroke-dasharray: 3, 3;  /* Creates dotted lines */
+    stroke-width: 0.8;
+  }
+}
+
+.recharts-wrapper{
+  max-height: 325px !important;
+}
+/* Hover effects */
+.chart:hover {
+  box-shadow: 10px 10px 20px var(--shadow-dark),
+              -10px -10px 20px var(--shadow-light);
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 1200px) {
+  .chart {
+    padding: 15px;
+    
+    .title {
+      margin-bottom: 15px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .chart {
+    flex: 1 1 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+
+    .title {
+      margin-bottom: 15px;
+      font-size: 0.95em;
+    }
+
+    /* Lighter shadows for mobile */
+    box-shadow: 6px 6px 12px var(--shadow-dark),
+                -6px -6px 12px var(--shadow-light);
+
+    &::before {
+      box-shadow: inset 1px 1px 3px var(--shadow-dark),
+                  inset -1px -1px 3px var(--shadow-light);
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .chart {
+    padding: 10px;
+    margin-bottom: 15px;
+
+    .title {
+      margin-bottom: 10px;
+      font-size: 0.9em;
+    }
+
+    /* Even lighter shadows for small mobile */
+    box-shadow: 4px 4px 8px var(--shadow-dark),
+                -4px -4px 8px var(--shadow-light);
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #2d3748;
+    --text-color: #a0aec0;
+    --shadow-dark: rgba(0, 0, 0, 0.3);
+    --shadow-light: rgba(255, 255, 255, 0.1);
+    --grid-color: #4a5568;
+  }
+
+  .chart {
+    /* Adjusted shadows for dark mode */
+    box-shadow: 8px 8px 16px var(--shadow-dark),
+                -4px -4px 12px var(--shadow-light);
+
+    &::before {
+      box-shadow: inset 2px 2px 5px var(--shadow-dark),
+                  inset -1px -1px 3px var(--shadow-light);
+    }
+  }
+}

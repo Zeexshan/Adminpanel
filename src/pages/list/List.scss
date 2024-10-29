@@ -1,0 +1,182 @@
+.list {
+    display: flex;
+    width: 100%;
+    background-color: #e0e5ec;
+    min-height: 100vh;
+    
+    .listContainer {
+      flex: 6;
+      padding: 32px;
+      
+      .bottom {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 40px;
+        margin: 20px;
+        border-radius: 20px;
+        background: #e0e5ec;
+        box-shadow: 20px 20px 60px #bec3c9,
+                    -20px -20px 60px #ffffff;
+        
+        .fchart {
+          width: 200px;
+          height: 200px;
+          margin-bottom: 24px;
+          
+          // Customize CircularProgressbar
+          .CircularProgressbar {
+            .CircularProgressbar-path {
+              stroke: #4885ed;
+              filter: drop-shadow(2px 2px 4px rgba(72, 133, 237, 0.3));
+            }
+            .CircularProgressbar-trail {
+              stroke: #d1d9e6;
+            }
+            .CircularProgressbar-text {
+              fill: #4885ed;
+              font-size: 24px;
+              font-weight: bold;
+            }
+          }
+        }
+        
+        .title {
+          font-size: 24px;
+          color: #4885ed;
+          margin: 16px 0;
+          font-weight: 600;
+        }
+        
+        .amount {
+          font-size: 36px;
+          font-weight: bold;
+          color: #2d3436;
+          margin: 8px 0;
+        }
+        
+        .desc {
+          text-align: center;
+          color: #636e72;
+          max-width: 500px;
+          margin: 16px 0;
+          line-height: 1.6;
+        }
+        
+        .summary {
+          display: flex;
+          justify-content: space-around;
+          width: 100%;
+          max-width: 800px;
+          margin-top: 32px;
+          gap: 24px;
+          
+          .item {
+            flex: 1;
+            padding: 24px;
+            border-radius: 15px;
+            background: #e0e5ec;
+            box-shadow: inset 8px 8px 16px #bec3c9,
+                        inset -8px -8px 16px #ffffff;
+            
+            .itemTitle {
+              font-size: 18px;
+              color: #636e72;
+              margin-bottom: 16px;
+            }
+            
+            .itemResult {
+              display: flex;
+              align-items: center;
+              font-size: 16px;
+              
+              &.positive {
+                color: #00b894;
+              }
+              
+              &.negative {
+                color: #d63031;
+              }
+              
+              .resultAmount {
+                margin-left: 8px;
+                font-weight: 500;
+              }
+            }
+          }
+        }
+      }
+      
+      .top {
+        margin: 20px;
+        padding: 20px;
+        border-radius: 20px;
+        background: #e0e5ec;
+        box-shadow: 20px 20px 60px #bec3c9,
+                    -20px -20px 60px #ffffff;
+        
+        .title {
+          font-size: 24px;
+          color: #4885ed;
+          margin-bottom: 16px;
+        }
+      }
+      
+      .loanCards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 24px;
+        padding: 20px;
+        
+        .loanCard {
+          padding: 32px;
+          border-radius: 20px;
+          background: #e0e5ec;
+          box-shadow: 8px 8px 16px #bec3c9,
+                      -8px -8px 16px #ffffff;
+          transition: transform 0.3s ease;
+          
+          &:hover {
+            transform: translateY(-5px);
+          }
+          
+          h2 {
+            color: #4885ed;
+            margin-bottom: 16px;
+            font-size: 20px;
+          }
+          
+          p {
+            color: #636e72;
+            margin-bottom: 24px;
+          }
+          
+          .applyButton {
+            width: 100%;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 12px;
+            background: #e0e5ec;
+            box-shadow: 8px 8px 16px #bec3c9,
+                        -8px -8px 16px #ffffff;
+            color: #4885ed;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            
+            &:hover {
+              background: #4885ed;
+              color: #ffffff;
+              box-shadow: inset 8px 8px 16px #3a6abf,
+                          inset -8px -8px 16px #56a0ff;
+            }
+            
+            &:active {
+              box-shadow: inset 4px 4px 8px #3a6abf,
+                          inset -4px -4px 8px #56a0ff;
+            }
+          }
+        }
+      }
+    }
+  }
